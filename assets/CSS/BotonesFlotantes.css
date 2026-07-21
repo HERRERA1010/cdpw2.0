@@ -1,0 +1,59 @@
+/* Botones flotantes */
+
+.containerBoton,
+.containerBoton2 {
+    position: fixed;
+    z-index: 999;
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid #fff;
+    transition: transform 0.3s ease;
+    animation: efect 1.2s infinite;
+    margin: 0;
+    right: 1rem;
+    left: auto;
+}
+
+.containerBoton {
+    background-color: #2e6329;
+    bottom: 60px;
+}
+
+.containerBoton:hover,
+.containerBoton2:hover {
+    transform: scale(1.1);
+}
+
+.botonW,
+.botonT {
+    width: 29px;
+    transition: ease 1s;
+}
+
+
+
+/*final whatsapp button*/
+
+
+/*tel button*/
+
+.containerBoton2 {
+    background-color: rgb(10, 156, 241);
+    bottom: 130px;
+}
+
+@media (max-width: 576px) {
+    .containerBoton,
+    .containerBoton2 {
+        right: 0.75rem;
+    }
+}
+
+@keyframes efect {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+}
