@@ -767,43 +767,6 @@
       color: var(--gray);
     }
 
-    /* ===== STICKY CTA MOBILE ===== */
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      padding: var(--space-sm) var(--space-md);
-      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .sticky-cta.visible {
-      display: block;
-    }
-
-    .sticky-cta a {
-      display: block;
-      width: 100%;
-      padding: 0.875rem;
-      background: var(--primary);
-      color: var(--white);
-      text-align: center;
-      text-decoration: none;
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      font-size: 1rem;
-      min-height: 48px;
-      transition: background 0.3s ease;
-    }
-
-    .sticky-cta a:hover {
-      background: var(--primary-light);
-    }
-
     /* ===== FOOTER ===== */
     footer {
       padding: var(--space-lg) var(--space-md);
@@ -937,14 +900,6 @@
 
       .process-step {
         padding: var(--space-md);
-      }
-
-      body {
-        padding-bottom: 80px;
-      }
-
-      .sticky-cta {
-        display: block;
       }
     }
 
@@ -1167,11 +1122,6 @@
     </section>
   </main>
 
-  <!-- STICKY CTA MOBILE -->
-  <div class="sticky-cta" id="stickyCta">
-    <a href="#contacto">Contáctanos ahora</a>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <p>© 2026 CD/PROJECT/WEB. Todos los derechos reservados.</p>
@@ -1247,7 +1197,6 @@
 
     // ===== NAVBAR SCROLL =====
     const navbar = document.getElementById('navbar');
-    const stickyCta = document.getElementById('stickyCta');
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
@@ -1256,13 +1205,6 @@
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
-      }
-
-      // Mostrar sticky CTA después del hero
-      if (scrollY > window.innerHeight && window.innerWidth <= 968) {
-        stickyCta.classList.add('visible');
-      } else {
-        stickyCta.classList.remove('visible');
       }
     }, { passive: true });
 
@@ -1368,7 +1310,6 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    // Validación en tiempo real
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
@@ -1388,7 +1329,6 @@
       validateField(messageInput, messageError, val => val.trim().length > 0);
     });
 
-    // Limpiar error al escribir
     [nameInput, emailInput, messageInput].forEach(input => {
       input.addEventListener('input', () => {
         input.classList.remove('error');
@@ -1404,7 +1344,6 @@
       const isMessageValid = validateField(messageInput, messageError, val => val.trim().length > 0);
 
       if (isNameValid && isEmailValid && isMessageValid) {
-        // Simular envío
         const submitBtn = contactForm.querySelector('.btn-submit');
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
